@@ -19,7 +19,7 @@ class Tipper
   end
 
   # previously:
-  
+
   # def total
   #     amount + (amount * 0.05) - (amount * (discount_percentage / 100.0)) + (amount * (tip_percentage / 100.0))
   # end
