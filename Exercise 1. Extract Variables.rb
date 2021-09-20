@@ -18,6 +18,12 @@ class Tipper
     amount + tax - discount + tip
   end
 
+  # previously:
+  
+  # def total
+  #     amount + (amount * 0.05) - (amount * (discount_percentage / 100.0)) + (amount * (tip_percentage / 100.0))
+  # end
+
   private
 
   attr_reader :amount, :discount_percentage, :tip_percentage
