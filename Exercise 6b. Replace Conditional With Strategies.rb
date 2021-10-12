@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
+CITIES = ['Minsk', 'Berlin'].freeze
+
 def call
-  if address.start_with?('Minsk')
-    'Minsk'
-  elsif address.start_with?('Berlin')
-    'Berlin'
+  CITIES.detect do |city|
+    address.start_with?(city)
   end
 end
+
+# Ruby 'detect' method
+# https://apidock.com/ruby/Enumerable/detect
