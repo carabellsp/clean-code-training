@@ -2,8 +2,6 @@
 
 class TipsProcessor
 
-  TAX = 0.05
-
   def initialize(form:)
     @form = form
   end
@@ -21,19 +19,39 @@ class TipsProcessor
   end
 
   def total_amount
-    form.amount + tax - discount + tip
+    CalculateTotal.new(form: form).call
   end
 
+end
+
+class CalculateTotal
+
+  TAX = 0.05
+
+  def initialize(form:)
+    @amount = form.amount
+    @discount_percentage = form.discount_percentage
+    @tip_percentage = form.tip_percentage
+  end
+
+  def call
+    amount + tax - discount + tip
+  end
+
+  private
+
+  attr_reader :tax, :discount_percentage, :tip_percentage
+
   def tax
-    form.amount * TAX
+    amount * TAX
   end
 
   def discount
-    form.amount * (form.discount_percentage / 100.0)
+    amount * (discount_percentage / 100.0)
   end
 
   def tip
-    form.amount * (form.tip_percentage / 100.0)
+    amount * (tip_percentage / 100.0)
   end
 
 end
