@@ -9,3 +9,5 @@ module Mixin
     199
   end
 end
+
+# when using mixins, it's better to hide implementation details in the inner class, so as not to pollute the namespace of method names in the target class
